@@ -11,7 +11,7 @@ export class ImageMetadataProviderService {
 
   private imageMetaData: ImageMetadata[] | undefined;
 
-  async getAllImageMetaData(): Promise<ImageMetadata[]> {
+  async getAllImageMetadata(): Promise<ImageMetadata[]> {
     if (!this.imageMetaData || this.imageMetaData.length == 0) {
       const data = await fetch(this.url);
       this.imageMetaData = await data.json();
@@ -23,7 +23,12 @@ export class ImageMetadataProviderService {
   }
 
   async getImageMetaData(id: string): Promise<ImageMetadata | undefined> {
-    const allMetadata = await this.getAllImageMetaData();
+    const allMetadata = await this.getAllImageMetadata();
     return allMetadata.find((value) => value.id === id);
+  }
+
+  async getAllImportantImagesMetadata(): Promise<ImageMetadata[]> {
+    const allMetadata = await this.getAllImageMetadata();
+    return allMetadata.filter((value) => value.isImportant === true);
   }
 }

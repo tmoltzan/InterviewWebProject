@@ -35,3 +35,8 @@ The images were somewhat arbitrarily set to display at a size of 250x250. This i
 Story 3
 Assumption: No back button is needed as the browser navigation works to return to the images list.
 Assumption: The details page shows the full size of the image. Product management might want to set a maximum size on this, but as a developer I don't really know the use case. If this was medical imaging, than the maximum size might be ideal.
+
+Story 5
+The Checkbox to only show important images is fixed at the top of the page and could go off of screen if the user scrolls. There may be an additional requirement that the header stays fixed as the images scroll that was not addressed in this project exercise.
+
+The styling of the "filters area", if it evolves into that would need to be discussed.

@@ -1,6 +1,19 @@
-<section class="images">
-  <app-image-container
-    *ngFor="let imageMetadata of imagesMetadata"
-    [imageMetadata]="imageMetadata"
-  />
+<section>
+  <header>
+    <div>
+      <label for="important">Only Show Important Images: </label>
+      <input
+        type="checkbox"
+        id="isImportant"
+        [(ngModel)]="onlyShowImportant"
+        (change)="applyFilters()"
+      />
+    </div>
+  </header>
+  <section class="images">
+    <app-image-container
+      *ngFor="let imageMetadata of imagesMetadata"
+      [imageMetadata]="imageMetadata"
+    />
+  </section>
 </section>
