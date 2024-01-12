@@ -43,3 +43,16 @@ The styling of the "filters area", if it evolves into that would need to be disc
 
 Story 6
 Assumed that filtering on both Author and Important should be done at the same time. Needed a singleton service to store teh filter values when navigating into the list page and into the details since the images list gets recreated and the constructor was re-initializing the filter values.
+
+Conclusions:
+The three main areas I would have spent more time on for production code would have been:
+
+1. Style. This is definantly not my strong point, but I understand the importance of it and would work with PM/Dev managers to understand the initial design and get approval as the work progressed.
+2. String Localization. In my previous job this was always a requirements and I would have worked with PM/Dev Managers to get approval for the english strings as well as do the work neccessary for the strings to be localized into all supported languages.
+3. Unit tests. Much of the filtering logic was moved into a service, but I did not get unit tests around that functionality.
+
+This app only ever fetches the first 30 of the random images, and the first requirement states to be able to list all of the images from https://picsum.photos/v2/list. This would probably include dealing with pagination in a production web app.
+
+Doing a paginated UI would have been easier than doing something like an infinite scroll, but the later seems like the current UI trend. I have recently done some work with infinite scroll in preact with intersection observers, but would have stumbled getting off the ground in Angular.
+
+The combination of pagination with clientside filtering can be quite complex to make performant and memory efficient. I probably would not have had time to fully solve that aspect in 4 hours even had I framed that as the most important piece.
