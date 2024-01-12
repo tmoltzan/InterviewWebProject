@@ -1,0 +1,13 @@
+<div style="width: 200px; padding: auto; margin: auto">
+  <p class="image-author" style="width: 200px; padding: auto; margin: auto">
+    Author: {{ imageMetadata.author }}
+  </p>
+  <div>
+    <label for="important">Important: </label>
+    <input
+      type="checkbox"
+      id="isImportant"
+      [(ngModel)]="imageMetadata.isImportant"
+    />
+  </div>
+</div>

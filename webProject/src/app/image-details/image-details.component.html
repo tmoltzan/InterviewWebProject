@@ -1,10 +1,8 @@
-<section class="imageDetail">
-  <p class="image-author" style="width: 250px">
-    Author: {{ imageMetadata?.author }}
-  </p>
+<section class="imageDetail" *ngIf="imageMetadata">
+  <app-image-header [imageMetadata]="imageMetadata" />
   <img
     class="image-fullSize"
-    [src]="imageMetadata?.download_url"
-    alt="Image Id: {{ imageMetadata?.id }}"
+    [src]="imageMetadata.download_url"
+    alt="Image Id: {{ imageMetadata.id }}"
   />
 </section>

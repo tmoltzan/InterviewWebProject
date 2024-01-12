@@ -5,4 +5,5 @@ export interface ImageMetadata {
   height: string;
   url: string;
   download_url: string;
+  isImportant: boolean;
 }

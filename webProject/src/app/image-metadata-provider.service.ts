@@ -15,6 +15,9 @@ export class ImageMetadataProviderService {
     if (!this.imageMetaData || this.imageMetaData.length == 0) {
       const data = await fetch(this.url);
       this.imageMetaData = await data.json();
+      this.imageMetaData?.forEach((value) => {
+        value.isImportant = false;
+      });
     }
     return this.imageMetaData ?? [];
   }

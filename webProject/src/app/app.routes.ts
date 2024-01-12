@@ -11,7 +11,7 @@ export const routeConfig: Routes = [
   {
     path: 'details/:id',
     component: ImageDetailsComponent,
-    title: 'Home details',
+    title: 'Image - Full Size',
   },
 ];
 
