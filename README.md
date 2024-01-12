@@ -27,7 +27,10 @@ There are no requirements on how the images are listed, any styling or responsiv
 
 Open Question: The constructor of ImageListComponent having async code seems like a code smell. I would like to work around that or convince myself it is okay since it is a component if possible and time permits.
 
-Story2:
+Story 2:
 
 The webp version of the image was templated to be displayed simply above the corresponding image.
 The images were somewhat arbitrarily set to display at a size of 250x250. This is smaller that the images on zillow.com, but is similar to parts of amazon.com. No special attention was given for mobile devices, but a variety of window sizes typical to a PC were manually tested with no unexpected side effects.
+
+Story 3
+Assumption: no back button is needed as the browser navigation works to return to the images list.

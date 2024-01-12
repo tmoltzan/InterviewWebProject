@@ -2,9 +2,11 @@
   <p class="image-author" style="width: 250px">
     Author: {{ imageMetadata.author }}
   </p>
-  <img
-    class="image-thumbnail"
-    src="{{ imageMetadata.download_url }}.webp"
-    alt="Image Id: {{ imageMetadata.id }}"
-  />
+  <a [routerLink]="['/details', imageMetadata.id]">
+    <img
+      class="image-thumbnail"
+      src="{{ imageMetadata.download_url }}.webp"
+      alt="Image Id: {{ imageMetadata.id }}"
+    />
+  </a>
 </section>
