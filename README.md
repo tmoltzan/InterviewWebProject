@@ -10,3 +10,14 @@ Windows 10 PC
 Chrome 120.0.6099.217
 Angular CLI
 TypeScript 4.9.5
+
+Story 1
+The Angular.IO "homes" tutorial was used as a guide to scaffold this app, but the work done here is my own.
+
+There are no requirements on how the images are listed, any styling or responsiveness. This seems to be a "check point" type of story that is not shippable in itself. I will not spend any time on the following details at this time:
+
+1. Hard Coded English Strings
+2. CSS to make this look good. As this page evolves a little bit, more work into HTML structure and styling may be needed, but his does not seem like the right time to do it.
+3. Pagination is ignored at this time
+
+Open Question: The constructor of ImageListComponent having async code seems like a code smell. I would like to work around that or convince myself it is okay since it is a component if possible and time permits.
