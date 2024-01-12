@@ -3,8 +3,14 @@
         height: 250px;
         width: 250px;
         object-fit: cover;
-        border-radius: 3px 3px 3px 3px;
+        border-radius: 0px 0px 3px 3px;
     }
-    background-color: lavender;
-    border-radius: 3px 3px 3px 3px;
+
+    .image-header-container {
+        width: 250px;
+        padding: auto;
+        margin: auto;
+        background-color: lavender;
+        border-radius: 3px 3px 0px 0px;
+    }
 }
