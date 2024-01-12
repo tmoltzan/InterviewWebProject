@@ -40,3 +40,6 @@ Story 5
 The Checkbox to only show important images is fixed at the top of the page and could go off of screen if the user scrolls. There may be an additional requirement that the header stays fixed as the images scroll that was not addressed in this project exercise.
 
 The styling of the "filters area", if it evolves into that would need to be discussed.
+
+Story 6
+Assumed that filtering on both Author and Important should be done at the same time. Needed a singleton service to store teh filter values when navigating into the list page and into the details since the images list gets recreated and the constructor was re-initializing the filter values.
