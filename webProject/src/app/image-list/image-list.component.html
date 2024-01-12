@@ -9,6 +9,18 @@
         (change)="applyFilters()"
       />
     </div>
+    <div>
+      <label for="authorName"
+        >Only Show Images from Authors containg the text:
+      </label>
+      <input
+        type="text"
+        id="authorName"
+        [(ngModel)]="authorName"
+        (change)="applyFilters()"
+        (keyup)="applyFilters()"
+      />
+    </div>
   </header>
   <section class="images">
     <app-image-container

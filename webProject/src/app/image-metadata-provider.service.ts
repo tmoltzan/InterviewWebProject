@@ -11,7 +11,7 @@ export class ImageMetadataProviderService {
 
   private imageMetaData: ImageMetadata[] | undefined;
 
-  async getAllImageMetadata(): Promise<ImageMetadata[]> {
+  public async getAllImageMetadata(): Promise<ImageMetadata[]> {
     if (!this.imageMetaData || this.imageMetaData.length == 0) {
       const data = await fetch(this.url);
       this.imageMetaData = await data.json();
@@ -22,13 +22,32 @@ export class ImageMetadataProviderService {
     return this.imageMetaData ?? [];
   }
 
-  async getImageMetaData(id: string): Promise<ImageMetadata | undefined> {
+  public async getImageMetaData(
+    id: string
+  ): Promise<ImageMetadata | undefined> {
     const allMetadata = await this.getAllImageMetadata();
     return allMetadata.find((value) => value.id === id);
   }
 
-  async getAllImportantImagesMetadata(): Promise<ImageMetadata[]> {
+  private async getAllImportantImagesMetadata(): Promise<ImageMetadata[]> {
     const allMetadata = await this.getAllImageMetadata();
     return allMetadata.filter((value) => value.isImportant === true);
+  }
+
+  async getFilteredImageMetadata(isImportant: boolean, authorName: String) {
+    let candidates: ImageMetadata[] = [];
+    if (isImportant) {
+      candidates = await this.getAllImportantImagesMetadata();
+    } else {
+      candidates = await this.getAllImageMetadata();
+    }
+    if (authorName.trim().length > 0) {
+      return candidates.filter(
+        (value) =>
+          value.author.toLowerCase().indexOf(authorName.trim().toLowerCase()) >
+          -1
+      );
+    }
+    return candidates;
   }
 }

@@ -3,7 +3,9 @@ import { ImageContainerComponent } from '../image-container/image-container.comp
 import { CommonModule } from '@angular/common';
 import { ImageMetadata } from '../image-metadata';
 import { ImageMetadataProviderService } from '../image-metadata-provider.service';
+import { FilterValueServiceService } from '../filter-value-service.service';
 import { FormsModule } from '@angular/forms';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-image-list',
@@ -15,12 +17,20 @@ import { FormsModule } from '@angular/forms';
 export class ImageListComponent {
   imagesMetadata: ImageMetadata[] = [];
   onlyShowImportant: boolean = false;
+  authorName: String = '';
   imageMetadataService: ImageMetadataProviderService = inject(
     ImageMetadataProviderService
   );
+  filterValueService: FilterValueServiceService = inject(
+    FilterValueServiceService
+  );
 
   constructor() {
-    this.showAllImages();
+    this.onlyShowImportant = this.filterValueService.getIsImportant();
+    this.authorName = this.filterValueService.getAuthorName();
+    this.applyFilters();
+
+    //this.showAllImages();
     // This is the pattern used in tutorials on angular.io, but I have my reservations.
     // Having async code that is not awaited just seems like a code smell, especially in a constructor.
     // I tend to have an initializer in ts classes that is async.
@@ -29,24 +39,11 @@ export class ImageListComponent {
   }
 
   public applyFilters(): void {
-    if (this.onlyShowImportant) {
-      this.showOnlyImportantImages();
-    } else {
-      this.showAllImages();
-    }
-  }
+    this.filterValueService.setAuthorName(this.authorName);
+    this.filterValueService.setIsImportant(this.onlyShowImportant);
 
-  private showAllImages(): void {
     this.imageMetadataService
-      .getAllImageMetadata()
-      .then((imagesMetaData: any) => {
-        this.imagesMetadata = imagesMetaData;
-      });
-  }
-
-  private showOnlyImportantImages(): void {
-    this.imageMetadataService
-      .getAllImportantImagesMetadata()
+      .getFilteredImageMetadata(this.onlyShowImportant, this.authorName)
       .then((imagesMetaData: any) => {
         this.imagesMetadata = imagesMetaData;
       });
