@@ -11,6 +11,11 @@ Chrome 120.0.6099.217
 Angular CLI
 TypeScript 4.9.5
 
+Runing the project (from /InterviewWebProject/webProject ):
+ng serve --open
+
+This will build and serve the application, as well as launch the default broser to the project.
+
 Story 1
 The Angular.IO "homes" tutorial was used as a guide to scaffold this app, but the work done here is my own.
 
@@ -21,3 +26,8 @@ There are no requirements on how the images are listed, any styling or responsiv
 3. Pagination is ignored at this time
 
 Open Question: The constructor of ImageListComponent having async code seems like a code smell. I would like to work around that or convince myself it is okay since it is a component if possible and time permits.
+
+Story2:
+
+The webp version of the image was templated to be displayed simply above the corresponding image.
+The images were somewhat arbitrarily set to display at a size of 250x250. This is smaller that the images on zillow.com, but is similar to parts of amazon.com. No special attention was given for mobile devices, but a variety of window sizes typical to a PC were manually tested with no unexpected side effects.

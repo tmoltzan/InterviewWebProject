@@ -1,10 +1,10 @@
-<section class="image">
-  <div>
-    <h2>Image Id: {{ imageMetadata.id }}</h2>
-    <h3>Author: {{ imageMetadata.author }}</h3>
-    <h3>Width: {{ imageMetadata.width }}</h3>
-    <h3>Height: {{ imageMetadata.height }}</h3>
-    <h3>URL: {{ imageMetadata.url }}</h3>
-    <h3>Download URL: {{ imageMetadata.download_url }}</h3>
-  </div>
+<section class="image" style="width: 250px">
+  <p class="image-author" style="width: 250px">
+    Author: {{ imageMetadata.author }}
+  </p>
+  <img
+    class="image-thumbnail"
+    src="{{ imageMetadata.download_url }}.webp"
+    alt="Image Id: {{ imageMetadata.id }}"
+  />
 </section>
