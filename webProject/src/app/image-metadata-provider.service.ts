@@ -9,8 +9,18 @@ export class ImageMetadataProviderService {
 
   constructor() {}
 
+  private imageMetaData: ImageMetadata[] | undefined;
+
   async getAllImageMetaData(): Promise<ImageMetadata[]> {
-    const data = await fetch(this.url);
-    return (await data.json()) ?? [];
+    if (!this.imageMetaData || this.imageMetaData.length == 0) {
+      const data = await fetch(this.url);
+      this.imageMetaData = await data.json();
+    }
+    return this.imageMetaData ?? [];
+  }
+
+  async getImageMetaData(id: string): Promise<ImageMetadata | undefined> {
+    const allMetadata = await this.getAllImageMetaData();
+    return allMetadata.find((value) => value.id === id);
   }
 }

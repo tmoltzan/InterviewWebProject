@@ -3,6 +3,8 @@
         height: 250px;
         width: 250px;
         object-fit: cover;
-        border-radius: 15px 15px 15px 15px;
+        border-radius: 3px 3px 3px 3px;
     }
+    background-color: lavender;
+    border-radius: 3px 3px 3px 3px;
 }

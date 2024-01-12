@@ -1,1 +1,10 @@
-<p>image-details works!</p>
+<section class="imageDetail">
+  <p class="image-author" style="width: 250px">
+    Author: {{ imageMetadata?.author }}
+  </p>
+  <img
+    class="image-fullSize"
+    [src]="imageMetadata?.download_url"
+    alt="Image Id: {{ imageMetadata?.id }}"
+  />
+</section>

@@ -33,4 +33,5 @@ The webp version of the image was templated to be displayed simply above the cor
 The images were somewhat arbitrarily set to display at a size of 250x250. This is smaller that the images on zillow.com, but is similar to parts of amazon.com. No special attention was given for mobile devices, but a variety of window sizes typical to a PC were manually tested with no unexpected side effects.
 
 Story 3
-Assumption: no back button is needed as the browser navigation works to return to the images list.
+Assumption: No back button is needed as the browser navigation works to return to the images list.
+Assumption: The details page shows the full size of the image. Product management might want to set a maximum size on this, but as a developer I don't really know the use case. If this was medical imaging, than the maximum size might be ideal.
