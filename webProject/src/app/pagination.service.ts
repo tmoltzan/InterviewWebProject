@@ -7,7 +7,7 @@ export class PaginationService {
   hasPrev: boolean = false;
   hasNext: boolean = false;
   page = 1;
-  readonly pageSize = 100;
+  readonly pageSize = 20;
 
   constructor() {}
 }

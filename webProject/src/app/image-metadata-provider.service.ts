@@ -31,7 +31,11 @@ export class ImageMetadataProviderService {
       });
     }
 
-    let url = 'https://picsum.photos/v2/list?page=' + pageNumber + '&limit=50';
+    let url =
+      'https://picsum.photos/v2/list?page=' +
+      pageNumber +
+      '&limit=' +
+      this.paginationService.pageSize;
 
     const data = await fetch(url);
 
