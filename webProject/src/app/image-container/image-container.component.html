@@ -6,7 +6,7 @@
   <a [routerLink]="['/details', imageMetadata.id]">
     <img
       class="image-thumbnail"
-      src="{{ imageMetadata.download_url }}.webp"
+      src="https://picsum.photos/id/{{ imageMetadata.id }}/250/250"
       alt="Image Id: {{ imageMetadata.id }}"
     />
   </a>

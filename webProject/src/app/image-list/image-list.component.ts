@@ -5,7 +5,7 @@ import { ImageMetadata } from '../image-metadata';
 import { ImageMetadataProviderService } from '../image-metadata-provider.service';
 import { FilterValueServiceService } from '../filter-value-service.service';
 import { FormsModule } from '@angular/forms';
-import { filter } from 'rxjs';
+import { PaginationService } from '../pagination.service';
 
 @Component({
   selector: 'app-image-list',
@@ -18,24 +18,31 @@ export class ImageListComponent {
   imagesMetadata: ImageMetadata[] = [];
   onlyShowImportant: boolean = false;
   authorName: String = '';
+  notHasPrev: boolean = true;
+  notHasNext: boolean = true;
+
   imageMetadataService: ImageMetadataProviderService = inject(
     ImageMetadataProviderService
   );
   filterValueService: FilterValueServiceService = inject(
     FilterValueServiceService
   );
+  paginationService: PaginationService = inject(PaginationService);
 
   constructor() {
     this.onlyShowImportant = this.filterValueService.getIsImportant();
     this.authorName = this.filterValueService.getAuthorName();
     this.applyFilters();
+  }
 
-    //this.showAllImages();
-    // This is the pattern used in tutorials on angular.io, but I have my reservations.
-    // Having async code that is not awaited just seems like a code smell, especially in a constructor.
-    // I tend to have an initializer in ts classes that is async.
-    // In general this type of code is hard to unit test and can lead to weird bugs that are hard to track down.
-    // Maybe being in a component it is an exeption to my rules, but I would want to research more before I put this into production code.
+  public onNextClick(): void {
+    this.paginationService.page++;
+    this.applyFilters();
+  }
+
+  public onPrevClick(): void {
+    this.paginationService.page--;
+    this.applyFilters();
   }
 
   public applyFilters(): void {
@@ -46,6 +53,8 @@ export class ImageListComponent {
       .getFilteredImageMetadata(this.onlyShowImportant, this.authorName)
       .then((imagesMetaData: any) => {
         this.imagesMetadata = imagesMetaData;
+        this.notHasNext = !this.paginationService.hasNext;
+        this.notHasPrev = !this.paginationService.hasPrev;
       });
   }
 }

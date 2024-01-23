@@ -1,6 +1,10 @@
 <section>
   <header>
     <div>
+      <button [disabled]="notHasPrev" (click)="onPrevClick()">Prev</button>
+      <button [disabled]="notHasNext" (click)="onNextClick()">Next</button>
+    </div>
+    <div>
       <label for="important">Only Show Important Images: </label>
       <input
         type="checkbox"
