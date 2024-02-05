@@ -8,12 +8,20 @@ describe('ImageHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImageHeaderComponent]
-    })
-    .compileComponents();
-    
+      imports: [ImageHeaderComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ImageHeaderComponent);
     component = fixture.componentInstance;
+    component.imageMetadata = {
+      id: '222',
+      author: 'foo',
+      isImportant: true,
+      url: '',
+      download_url: '',
+      width: '250',
+      height: '250',
+    };
     fixture.detectChanges();
   });
 

@@ -21,7 +21,7 @@ export class ImageDetailsComponent implements OnInit {
   );
 
   constructor() {
-    this.imageId = this.route.snapshot.params['id'];
+    this.imageId = this.route.snapshot.paramMap.get('id') ?? '0';
   }
 
   async ngOnInit(): Promise<void> {
