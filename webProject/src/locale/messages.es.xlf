@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="866994486665403355" datatype="html">
+        <source>Image Id: <x id="INTERPOLATION" equiv-text="{{ imageMetadata.id }}"/></source>
+        <target>Identificación de la Imagen: <x id="INTERPOLATION" equiv-text="{{ imageMetadata.id }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-container/image-container.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-details/image-details.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+        <trans-unit id="4804577572584453760" datatype="html">
+        <source>Author: <x id="INTERPOLATION" equiv-text="{{ imageMetadata.author }}"/></source>
+        <target>Autor: <x id="INTERPOLATION" equiv-text="{{ imageMetadata.author }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-header/image-header.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3749276423135504828" datatype="html">
+        <source>Important: </source>
+        <target>Es Importante: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-header/image-header.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2501522447884928778" datatype="html">
+        <source>Prev</source>
+        <target>Previa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-list/image-list.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3885497195825665706" datatype="html">
+        <source>Next</source>
+        <target>Próxima</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-list/image-list.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5601589883807564684" datatype="html">
+        <source>Only Show Important Images: </source>
+        <target>Mostrar Solo Imágenes Importantes: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-list/image-list.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8556140035348459054" datatype="html">
+        <source> Only Show Images from Authors Containing the Text: </source>
+        <target> Mostrar Solo Imágenes de Autores que Contengan el Texto: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-list/image-list.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
