@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ImageMetadataProviderService } from '../image-metadata-provider.service';
@@ -12,7 +12,7 @@ import { ImageHeaderComponent } from '../image-header/image-header.component';
   templateUrl: './image-details.component.html',
   styleUrl: './image-details.component.css',
 })
-export class ImageDetailsComponent {
+export class ImageDetailsComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   imageId = '';
   imageMetadata: ImageMetadata | undefined;
@@ -22,7 +22,9 @@ export class ImageDetailsComponent {
 
   constructor() {
     this.imageId = this.route.snapshot.params['id'];
+  }
 
+  async ngOnInit(): Promise<void> {
     this.imageMetaDataService
       .getImageMetaData(this.imageId)
       .then((imageMetaData: ImageMetadata | undefined) => {

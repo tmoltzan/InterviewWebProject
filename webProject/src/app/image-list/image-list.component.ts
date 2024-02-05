@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ImageContainerComponent } from '../image-container/image-container.component';
 import { CommonModule } from '@angular/common';
 import { ImageMetadata } from '../image-metadata';
@@ -14,7 +14,7 @@ import { PaginationService } from '../pagination.service';
   templateUrl: './image-list.component.html',
   styleUrl: './image-list.component.css',
 })
-export class ImageListComponent {
+export class ImageListComponent implements OnInit {
   imagesMetadata: ImageMetadata[] = [];
   onlyShowImportant: boolean = false;
   authorName: String = '';
@@ -32,24 +32,27 @@ export class ImageListComponent {
   constructor() {
     this.onlyShowImportant = this.filterValueService.getIsImportant();
     this.authorName = this.filterValueService.getAuthorName();
-    this.applyFilters();
   }
 
-  public onNextClick(): void {
+  public async ngOnInit(): Promise<void> {
+    await this.applyFilters();
+  }
+
+  public async onNextClick(): Promise<void> {
     this.paginationService.page++;
-    this.applyFilters();
+    await this.applyFilters();
   }
 
-  public onPrevClick(): void {
+  public async onPrevClick(): Promise<void> {
     this.paginationService.page--;
-    this.applyFilters();
+    await this.applyFilters();
   }
 
-  public applyFilters(): void {
+  public async applyFilters(): Promise<void> {
     this.filterValueService.setAuthorName(this.authorName);
     this.filterValueService.setIsImportant(this.onlyShowImportant);
 
-    this.imageMetadataService
+    return this.imageMetadataService
       .getFilteredImageMetadata(this.onlyShowImportant, this.authorName)
       .then((imagesMetaData: any) => {
         this.imagesMetadata = imagesMetaData;
